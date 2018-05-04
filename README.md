@@ -8,5 +8,7 @@ Then in R:
 YELP_SECRET = "[Your API Key]")
 
 To Do:
+
 Add category-specific prior distributions of star ratings
+
 Make it pretty
