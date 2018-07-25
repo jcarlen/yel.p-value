@@ -40,7 +40,8 @@ yelp_query <- function(keywords, location) {
   
   url <- modify_url("https://api.yelp.com", path = c("v3", "businesses", "search"),
                query = list(term = keywords, location = location, limit = 1))
-  res <- GET(url, add_headers('Authorization' = paste("bearer", "EDIQV9ovkJdjQxnMJs1PNQ8qQ--sn2YQRE8kDR5TQKidVBBU7llYQD3VhDKDUBCnyRF0laQb8w6nfU4UuomjEysepdy6mFQEbQg8LLvTlzNKDgw51WmGpbX4jm3hWnYx"))) #Sys.getenv("YELP_SECRET") -- see yelp_personal.R
+  res <- GET(url, add_headers('Authorization' = paste("bearer", "EDIQV9ovkJdjQxnMJs1PNQ8qQ--sn2YQRE8kDR5TQKidVBBU7llYQD3VhDKDUBCnyRF0laQb8w6nfU4UuomjEysepdy6mFQEbQg8LLvTlzNKDgw51WmGpbX4jm3hWnYx"))) #Sys.getenv("YELP_SECRET")
+                                                                # Currently set to my key. See README.md for how to get and set YELP API key. 
   ct <- content(res)
   
   url2 = str_extract(ct$businesses[[1]]$url, ".+(?=\\?)")
